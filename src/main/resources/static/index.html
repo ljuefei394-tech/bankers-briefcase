@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一掷千金网页版</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="app-shell">
+    <section class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow">Banker's Briefcase</p>
+            <h1>一掷千金</h1>
+            <p class="tagline">选择你的专属箱子，逐轮开箱，判断银行报价是否值得接受。</p>
+        </div>
+        <img src="/assets/stage.svg" alt="游戏舞台" class="stage-art">
+    </section>
+
+    <section class="game-layout">
+        <aside class="money-board" aria-label="奖金面板">
+            <div class="panel-heading">
+                <span>奖金池</span>
+                <div class="panel-actions">
+                    <button class="icon-button" id="soundButton" title="音效开关" type="button">♪</button>
+                    <button class="icon-button" id="newGameButton" title="重新开始" type="button">↻</button>
+                </div>
+            </div>
+            <div class="amount-grid" id="amountGrid"></div>
+        </aside>
+
+        <section class="play-area">
+            <div class="status-bar">
+                <div>
+                    <span class="status-label">当前阶段</span>
+                    <strong id="statusText">准备开始</strong>
+                </div>
+                <div>
+                    <span class="status-label">轮次</span>
+                    <strong id="roundText">-</strong>
+                </div>
+                <div>
+                    <span class="status-label">还需开箱</span>
+                    <strong id="leftText">-</strong>
+                </div>
+            </div>
+
+            <div class="case-grid" id="caseGrid" aria-label="箱子列表"></div>
+
+            <div class="offer-panel" id="finalPanel" hidden>
+                <span class="status-label">最终选择</span>
+                <strong>保留你的箱子，还是交换最后一个箱子？</strong>
+                <div class="actions">
+                    <button class="primary-button" id="keepButton" type="button">保留</button>
+                    <button class="secondary-button" id="switchButton" type="button">交换</button>
+                </div>
+            </div>
+
+            <div class="message" id="message">点击“重新开始”或等待自动开局。</div>
+        </section>
+    </section>
+</main>
+
+<div class="modal-backdrop" id="modalOverlay" hidden>
+    <section class="result-modal" id="resultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="animation-stage" id="modalAnimation" aria-hidden="true"></div>
+        <span class="status-label" id="modalLabel">银行报价</span>
+        <strong id="modalTitle">$0</strong>
+        <p id="modalBody"></p>
+        <p class="analysis-text" id="modalAnalysis" hidden></p>
+        <div class="actions" id="modalOfferActions" hidden>
+            <button class="danger-button" id="dealButton" type="button">成交</button>
+            <button class="success-button" id="noDealButton" type="button">继续开箱</button>
+        </div>
+        <div class="actions" id="modalResultActions" hidden>
+            <button class="primary-button" id="modalNewGameButton" type="button">再玩一局</button>
+            <button class="secondary-button" id="modalAnalysisButton" type="button">分析</button>
+        </div>
+    </section>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
