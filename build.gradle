@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.gec'
 version = '0.0.1-SNAPSHOT'
-description = 'A Spring Boot browser game with briefcase selection and banker offer mechanics.'
+description = '基于 Spring Boot 和原生前端实现的一掷千金网页小游戏。'
 
 java {
     toolchain {
